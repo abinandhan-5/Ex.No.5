@@ -1,170 +1,196 @@
+# EXP 5: COMPARATIVE ANALYSIS OF DIFFERENT TYPES OF PROMPTING PATTERNS AND EXPLAIN WITH VARIOUS TEST SCENARIOS
 
-# **EXP 5: COMPARATIVE ANALYSIS OF DIFFERENT TYPES OF PROMPTING PATTERNS AND EVALUATION WITH TEST SCENARIOS**
+# Aim: 
+To test and compare how different pattern models respond to various prompts (broad or unstructured) versus basic prompts (clearer and more refined) across multiple scenarios.  Analyze the quality, accuracy, and depth of the generated responses 
 
----
+## AI Tools Required: ChatGPT
 
-## **Aim**
+# Explanation: 
 
-To test and compare how different prompting patterns (naïve/unstructured vs. structured/refined) influence the responses of Large Language Models (LLMs). The experiment will analyze the **quality, accuracy, and depth** of outputs across multiple scenarios and demonstrate how structured prompt engineering improves AI performance.
+## 1. Introduction
 
----
+Automated maintenance report generation is a growing application of AI, where systems summarize machine conditions, errors, and required actions into clear, structured reports. A challenge in such systems is the variation in quality of AI-generated outputs, which depends heavily on how prompts are designed. Poorly structured prompts may produce vague or incomplete responses, while refined prompts can yield highly accurate and useful reports. This study focuses on prompt templating, a technique where prompts are pre-designed in structured formats, and on the command pattern technique, which allows consistent and repeatable task execution. By combining these two approaches, the study aims to test whether report generation can become more accurate, consistent, and scalable.
 
-## **AI Tools & Resources Required**
+## 2. Prompt Templating Techniques
 
-1. **ChatGPT / Gemini / Claude / Bard** (any Generative AI supporting LLMs).
-2. **Text editor** (VS Code / Word / Notepad) for documentation.
-3. **Spreadsheet or table tool** (Excel/Google Sheets/Markdown tables) for comparison and evaluation.
+Prompt templating refers to the systematic structuring of prompts that guide AI models in producing responses. Instead of giving random or natural queries, users rely on predefined formats to achieve higher-quality outputs.
 
----
+Broad or unstructured prompts:
+* Example: “Generate a maintenance report for a machine breakdown.”
+* Issues: AI may produce responses that are too general, inconsistent in format, or lacking in depth.
 
-## **Explanation**
+Basic or refined prompts:
+* Example: “Generate a maintenance report including: (1) Machine Name, (2) Fault Description, (3) Root Cause, (4) Corrective Action, (5) Preventive Measures.”
+* Benefits: Ensures a clear structure, predictable output, and improved relevance.
 
-Large Language Models generate responses based on **context and specificity** provided in the prompt.
+Impact on outputs:
+* Refined templates reduce ambiguity, increase reliability, and make AI responses easier to integrate into industrial workflows.
 
-* If the prompt is **vague or naïve**, the model “guesses” the user’s intent, often producing generic or shallow responses.
-* If the prompt is **structured and detailed**, the AI provides **richer, more accurate, and context-aligned** results.
+Examples of templating styles:
+* Question-based template: “What is the issue? What caused it? What is the solution?”
+* Checklist-style template: “Machine Name → Issue → Action Taken → Next Steps”
+* Tabular template: Used when reports need structured fields for database entry.
 
-Prompt engineering helps align AI responses with user goals by designing queries that are **clear, specific, and constraint-driven**.
+<img width="1100" height="618" alt="image" src="https://github.com/user-attachments/assets/5112955c-122a-4c7a-b797-4cdfef4cc1c4" />
 
----
 
-## **Types of Prompts Studied**
+## 3. Command Pattern Technique
+
+The command pattern is a design pattern in software engineering that encapsulates a request as an object. This allows systems to parameterize tasks, queue them, and execute them consistently.
 
-1. **Naïve Prompt**
+Key elements:
+* Command – the request (e.g., “Generate maintenance report”).
+* Invoker – the trigger that executes the command.
+* Receiver – the AI system or engine performing the task.
 
-* Definition: Broad/unstructured, minimal guidance.
-* Example: *“Write a story.”*
-* Expected Output: Generic, repetitive, low detail.
+Relevance to prompt design:
+* In AI-based reporting, each type of prompt can be treated as a “command object.”
+* This makes it easy to reuse prompts, maintain consistency, and execute them systematically.
 
-2. **Basic / Structured Prompt**
-
-* Definition: Detailed, clear, with context, constraints, or style requirements.
-* Example: *“Write a 300-word science-fiction story set on Mars about a scientist discovering alien life, in a suspenseful tone.”*
-* Expected Output: Rich, organized, aligned with intent.
-
-3. **Zero-Shot Prompting**
-
-* No examples given, model relies on prior knowledge.
-* Example: *“What is the capital of France?” → Paris*
-
-4. **Few-Shot Prompting**
-
-* Few examples guide the model before a new task.
-* Example:
-
-  ```
-  Apple, Banana, Carrot, Orange → Carrot  
-  Dog, Cat, Bird, Table → Table  
-  Chair, Desk, Sofa, Book → ?  
-  ```
-
-  Expected: *Book*
-
-5. **Chain-of-Thought (CoT) Prompting**
-
-* Model is encouraged to show reasoning steps.
-* Example:
-  *“I have 3 boxes, each with 5 red balls and 2 blue balls. If I add 1 blue ball to each box, how many blue balls in total? Let’s think step by step.”*
-  Output: *9 blue balls (with reasoning steps).*
-
----
-
-## **Procedure**
-
-1. **Define Prompt Types**
-
-   * Create paired prompts (naïve vs structured) for chosen tasks.
-
-2. **Select Multiple Test Scenarios**
-
-   * Creative Story Generation
-   * Factual Q\&A
-   * Summarization
-   * Advice/Recommendation
-
-3. **Run Experiments**
-
-   * Input naïve prompt → record AI output.
-   * Input structured prompt → record AI output.
-   * Repeat for all scenarios.
-
-4. **Evaluate Responses**
-
-   * Criteria: **Quality, Accuracy, Depth**
-   * Use rubrics/scoring for fair comparison.
-
----
-
-## **Test Scenarios & Observations**
-
-### **Scenario 1: Creative Story Generation**
-
-* Naïve Prompt: *“Tell me a story.”*
-
-* AI Output: *“Once upon a time, a knight fought a dragon and saved a princess.”* (Generic, cliché, short)
-
-* Structured Prompt: *“Write a 300-word suspenseful Mars story about a scientist discovering alien life.”*
-
-* AI Output: Rich, vivid details about Mars environment, suspenseful alien encounter, narrative flow maintained.
-
-🔹 **Observation:** Structured prompt produced far richer storytelling.
-
----
-
-### **Scenario 2: Factual Q\&A**
-
-* Naïve Prompt: *“Capital of France?”*
-* Output: “Paris.”
-* Structured Prompt: *“What is the capital of France, and explain why it is historically important in European politics?”*
-* Output: “Paris, center of art, culture, Enlightenment, and EU politics.”
-
-🔹 **Observation:** Both correct, but structured prompt gave **depth and context**.
-
----
-
-### **Scenario 3: Summarization**
-
-* Naïve Prompt: *“Summarize AI.”*
-* Output: “AI means Artificial Intelligence, making machines smart.” (Very shallow)
-* Structured Prompt: *“Summarize the concept of Artificial Intelligence in 150 words, covering definition, applications, and challenges.”*
-* Output: Concise, structured summary with examples.
-
-🔹 **Observation:** Structured prompts drastically improve summarization.
-
----
-
-### **Scenario 4: Advice/Recommendation**
-
-* Naïve Prompt: *“Give me advice for studying.”*
-* Output: “Study daily, revise, focus.” (Too generic)
-* Structured Prompt: *“Suggest a 2-week study plan for an engineering student preparing for exams in AI and IoT, including daily tasks.”*
-* Output: Detailed schedule with subject breakdown and revision strategy.
-
-🔹 **Observation:** Structured prompt generated practical, actionable plan.
-
----
-
-## **Detailed Analysis**
-
-| **Aspect**            | **Naïve Prompt Result** | **Structured Prompt Result**       |
-| --------------------- | ----------------------- | ---------------------------------- |
-| **Quality of Output** | Generic, repetitive     | Rich, coherent, engaging           |
-| **Accuracy**          | Sometimes incomplete    | Highly accurate, factually correct |
-| **Depth**             | Surface-level only      | Detailed, contextual, insightful   |
-| **Scenario Fit**      | Creative tasks “okay”   | Works better across all tasks      |
-
----
-
-## **Summary of Findings**
-
-1. **Prompt clarity directly impacts output quality.**
-2. **Structured prompts consistently outperform naïve prompts**, especially for factual, summarization, and advice scenarios.
-3. **Naïve prompts can work for creativity**, but structured prompts give better flow and depth.
-4. Prompt engineering is essential for professional/academic use.
-
----
-
-## **Result**
-
-The experiment successfully showed that **structured prompting patterns improve the quality, accuracy, and depth** of AI responses. While naïve prompts may work for free-form creativity, **refined prompts are superior for reliable, context-rich, and actionable outputs**.
-
+Example:
+* Command: Generate report for turbine vibration issue.
+* Template ensures fields like Cause, Impact, Action.
+* Invoker: software system calling the AI.
+* Receiver: AI generates structured output.
+
+Benefits:
+* Reduces manual variation in how prompts are asked.
+* Standardizes outputs across multiple scenarios.
+* Makes scaling automated reporting across large systems possible.
+
+<img width="560" height="420" alt="image" src="https://github.com/user-attachments/assets/33226016-6b89-4e8c-a89e-c0b5f5a07203" />
+
+
+## 4. Integration of Prompt Templating with Command Pattern
+
+Concept: 
+* By combining templating with the command pattern, AI-generated maintenance reports can follow strictly defined structures while remaining adaptable to different contexts.
+
+Workflow:
+* User/system identifies the type of report needed.
+* Corresponding command object is created (linked to a specific template).
+* Command is executed by the invoker.
+* AI (receiver) fills the template with detailed, context-specific information.
+* Final structured report is generated.
+
+Illustration (example):
+* Command: “Generate preventive maintenance report.”
+
+Template:
+* Machine: [Name]
+* Current Status: [Condition]
+* Faults Observed: [List]
+* Actions Taken: [Steps]
+* Preventive Recommendations: [Suggestions]
+* Output: AI fills the placeholders with contextual information.
+
+Advantages of integration:
+* Consistency – reports always follow a fixed structure.
+* Accuracy – templates reduce ambiguity in AI interpretation.
+* Scalability – can handle thousands of maintenance logs with little manual intervention.
+* Flexibility – templates can be domain-specific (e.g., electrical faults, mechanical wear).
+
+Example Implementation:
+```
+# Command Pattern with Prompt Templating for Maintenance Report Generation
+
+from abc import ABC, abstractmethod
+
+# --- Command Interface ---
+class Command(ABC):
+    @abstractmethod
+    def execute(self):
+        pass
+
+# --- Receiver (AI/Report Generator) ---
+class ReportGenerator:
+    def fill_template(self, machine, issue, cause, action, recommendation):
+        template = f"""
+        Maintenance Report
+        ------------------
+        * Machine Name: {machine}
+        * Issue Reported: {issue}
+        * Root Cause: {cause}
+        * Corrective Action Taken: {action}
+        * Preventive Recommendation: {recommendation}
+        """
+        return template.strip()
+
+# --- Concrete Command ---
+class GenerateMaintenanceReport(Command):
+    def __init__(self, receiver, machine, issue, cause, action, recommendation):
+        self.receiver = receiver
+        self.machine = machine
+        self.issue = issue
+        self.cause = cause
+        self.action = action
+        self.recommendation = recommendation
+
+    def execute(self):
+        return self.receiver.fill_template(
+            self.machine, self.issue, self.cause, self.action, self.recommendation
+        )
+
+# --- Invoker ---
+class MaintenanceSystem:
+    def __init__(self):
+        self.commands = []
+
+    def add_command(self, command):
+        self.commands.append(command)
+
+    def run(self):
+        for command in self.commands:
+            print(command.execute())
+            print("\n" + "="*50 + "\n")
+
+# --- Client Code ---
+if __name__ == "__main__":
+    # Receiver
+    generator = ReportGenerator()
+
+    # Command (with templated fields)
+    report_cmd = GenerateMaintenanceReport(
+        generator,
+        machine="CNC Milling Machine",
+        issue="Unusual vibration detected",
+        cause="Loose coupling between motor shaft and spindle",
+        action="Coupling re-tightened and alignment verified",
+        recommendation="Implement routine torque checks every 200 operating hours"
+    )
+
+    # Invoker
+    system = MaintenanceSystem()
+    system.add_command(report_cmd)
+    system.run()
+```
+
+## 5. Advantages of this Approach (Tabulation)
+
+| Feature           | Prompt Templating | Command Pattern | Combined Approach |
+|-------------------|------------------|-----------------|------------------|
+| Consistency       | Moderate          | High            | Very High        |
+| Accuracy          | Moderate          | High            | Very High        |
+| Flexibility       | High              | Moderate        | High             |
+| Scalability       | Low               | High            | High             |
+| Depth of Response | Moderate          | High            | Very High        |
+
+## 6. Applications
+* Automated maintenance report generation.
+* Predictive maintenance in industries.
+* Fault diagnosis and troubleshooting.
+* Training and knowledge management.
+
+## 7. Future Enhancements
+* Adaptive templates using reinforcement learning.
+* Real-time feedback integration.
+* Multi-lingual prompt optimization.
+* Domain-specific fine-tuned AI models.
+
+## 8. Conclusion
+* Combining prompt templating with the command pattern offers a scalable and reliable framework for maintenance reporting.
+* It addresses issues of inconsistency, shallow responses, and lack of structure in AI outputs.
+* This approach has potential to be deployed widely in industrial automation.
+
+# RESULT: 
+The prompt for the above said problem executed successfully
